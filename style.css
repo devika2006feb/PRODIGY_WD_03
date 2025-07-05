@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+body {
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  font-family: 'Orbitron', sans-serif;
+  margin: 0;
+  padding: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 3em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px black;
+}
+
+.game-container {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid white;
+  font-size: 2.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  animation: fadeIn 0.4s ease-in-out;
+  border-radius: 10px;
+}
+
+.cell:hover {
+  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.cell.winning {
+  background-color: rgba(0, 255, 0, 0.4);
+  box-shadow: 0 0 10px 2px lime;
+}
+
+.reset-btn {
+  padding: 10px 25px;
+  font-size: 1.1em;
+  background-color: #ff4081;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: grab;
+  transition: background 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.reset-btn:hover {
+  background-color: #e91e63;
+}
+
+#status {
+  font-size: 1.5em;
+  margin-top: 10px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .game-container {
+    grid-template-columns: repeat(3, 80px);
+    gap: 8px;
+  }
+
+  .cell {
+    width: 80px;
+    height: 80px;
+    font-size: 2em;
+  }
+
+  .title {
+    font-size: 2em;
+  }
+
+  #status {
+    font-size: 1.2em;
+  }
+}
